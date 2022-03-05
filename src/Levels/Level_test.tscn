@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/TileSet.png" type="Texture" id=1]
 [ext_resource path="res://src/Acors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Acors/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -36,6 +37,11 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 0.0 ],
 "_edit_vertical_guides_": [ 3072.0 ]
 }
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UserInterface" parent="UserInterface" instance=ExtResource( 5 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
