@@ -15,6 +15,11 @@ func _physics_process(delta: float) -> void:
 	var direction: = get_direction()
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+	
+	if _velocity == Vector2.ZERO:
+		pass
+	else:
+		$AnimationTree.set("parameters/movement/blend_position", _velocity)
 
 func get_direction() -> Vector2:
 	return Vector2(
