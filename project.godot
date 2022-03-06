@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/GistItem.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "HBoxContainer",
 "class": "InvitationItem",
 "language": "GDScript",
@@ -43,7 +38,6 @@ _global_script_class_icons={
 "Actor": "",
 "ContributorClass": "",
 "GistItem": "",
-"GitAPI": "",
 "InvitationItem": "",
 "RepositoryItem": ""
 }
@@ -56,6 +50,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Score="*res://src/Data/Score.tscn"
 PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
@@ -67,7 +62,7 @@ enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg" )
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [global]
 
