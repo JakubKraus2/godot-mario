@@ -7,7 +7,8 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
-	queue_free()
+	Score.score = 0
+	get_tree().reload_current_scene()
 
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 	
-	if _velocity == Vector2.ZERO:
+	if _velocity == Vector2.ZERO || _velocity.y < 0.0 || _velocity.y > 0.0:
 		pass
 	else:
 		$AnimationTree.set("parameters/movement/blend_position", _velocity)
