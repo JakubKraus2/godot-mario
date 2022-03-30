@@ -69,9 +69,6 @@ tile_data = PoolIntArray( 0, 0, 0, 46, 0, 0, 47, 0, 0, 65536, 0, 0, 65582, 0, 0,
 position = Vector2( 228, 251 )
 speed = Vector2( 600, 1000 )
 
-[node name="player" parent="Player" index="0"]
-frame = 3
-
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 3072
 
@@ -102,10 +99,11 @@ position = Vector2( 123, 189 )
 [node name="Port" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2272, 268 )
 
-[node name="Area2D" parent="." instance=ExtResource( 10 )]
-position = Vector2( 984, 448 )
-
 [node name="Pipe" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1254, 372 )
+
+[node name="FlameRope" parent="." instance=ExtResource( 10 )]
+position = Vector2( 948, 471 )
+rotation = 1.5708
 
 [editable path="Player"]

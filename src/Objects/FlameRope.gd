@@ -1,5 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
-
-func _on_FlameRope_body_entered(body):
+func _on_Area2D_body_entered(body):
 	get_tree().reload_current_scene()
