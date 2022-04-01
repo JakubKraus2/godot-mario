@@ -15,4 +15,3 @@ margin_top = 14.0
 margin_right = -10.0
 margin_bottom = 28.0
 text = "Score: %s"
-percent_visible = -0.125
