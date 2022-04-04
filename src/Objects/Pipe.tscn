@@ -10,6 +10,8 @@ extents = Vector2( 47, 63.5 )
 extents = Vector2( 47, 3 )
 
 [node name="Pipe" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="SprPipe" type="Sprite" parent="."]
@@ -21,6 +23,8 @@ position = Vector2( 20, 17.5 )
 shape = SubResource( 1 )
 
 [node name="Detector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 modulate = Color( 1, 0.0313726, 1, 1 )
