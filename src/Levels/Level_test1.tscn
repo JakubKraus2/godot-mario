@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://assets/TileSet.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/Objects/Port.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Objects/coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Acors/Enemy2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Objects/PiranhaPlant.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -72,7 +73,7 @@ position = Vector2( 228, 251 )
 speed = Vector2( 600, 1000 )
 
 [node name="player" parent="Player" index="0"]
-frame = 3
+frame = 1
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 3072
@@ -93,7 +94,7 @@ position = Vector2( 329, 270 )
 position = Vector2( 1053, 468 )
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 522, 444 )
+position = Vector2( 522, 482 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 123, 189 )
@@ -107,7 +108,10 @@ position = Vector2( 913, 440 )
 [node name="KinematicBody2D5" parent="." instance=ExtResource( 11 )]
 position = Vector2( 931, 402 )
 
+[node name="Enemy4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1110, 511 )
+
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 655, 501 )
+position = Vector2( 698, 508 )
 
 [editable path="Player"]
