@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://assets/TileSet.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/Objects/coin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Acors/Enemy2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Objects/PiranhaPlant.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Objects/Mushroom.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -72,9 +73,6 @@ tile_data = PoolIntArray( 0, 0, 0, 46, 0, 0, 47, 0, 0, 65536, 0, 0, 65582, 0, 0,
 position = Vector2( 228, 251 )
 speed = Vector2( 600, 1000 )
 
-[node name="player" parent="Player" index="0"]
-frame = 1
-
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 3072
 
@@ -97,7 +95,7 @@ position = Vector2( 1053, 468 )
 position = Vector2( 522, 482 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 123, 189 )
+position = Vector2( 449, 395 )
 
 [node name="Port" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2272, 268 )
@@ -113,5 +111,8 @@ position = Vector2( 1110, 511 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 698, 508 )
+
+[node name="Mushroom" parent="." instance=ExtResource( 12 )]
+position = Vector2( 112, 236 )
 
 [editable path="Player"]

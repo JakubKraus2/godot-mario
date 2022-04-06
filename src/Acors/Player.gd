@@ -2,7 +2,13 @@ extends Actor
 
 
 export var stomp_impulse: = 1000.0
+var is_boosted = false
 
+func boost():
+	if is_boosted == true:
+		print("jj")
+	else:
+		print("nn")
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)

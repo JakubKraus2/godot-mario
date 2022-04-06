@@ -36,26 +36,26 @@ stretch_mode = 4
 
 [node name="NewGame" type="TextureRect" parent="VBoxContainer"]
 margin_top = 132.0
-margin_right = 100.0
+margin_right = 664.0
 margin_bottom = 196.0
 texture = ExtResource( 2 )
 script = ExtResource( 7 )
 
 [node name="LoadGame" type="TextureRect" parent="VBoxContainer"]
 margin_top = 200.0
-margin_right = 100.0
+margin_right = 664.0
 margin_bottom = 264.0
 texture = ExtResource( 3 )
 
 [node name="Options" type="TextureRect" parent="VBoxContainer"]
 margin_top = 268.0
-margin_right = 100.0
+margin_right = 664.0
 margin_bottom = 332.0
 texture = ExtResource( 5 )
 
 [node name="QuitGame" type="TextureRect" parent="VBoxContainer"]
 margin_top = 336.0
-margin_right = 100.0
+margin_right = 664.0
 margin_bottom = 400.0
 texture = ExtResource( 4 )
 script = ExtResource( 8 )
