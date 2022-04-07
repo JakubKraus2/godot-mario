@@ -2,13 +2,8 @@ extends Actor
 
 
 export var stomp_impulse: = 1000.0
-var is_boosted = false
+var boosted = false
 
-func boost():
-	if is_boosted == true:
-		print("jj")
-	else:
-		print("nn")
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
@@ -28,6 +23,11 @@ func _physics_process(delta: float) -> void:
 		pass
 	else:
 		$AnimationTree.set("parameters/movement/blend_position", _velocity)
+		
+	if boosted == true && Input.is_action_just_pressed("left_button"):
+		print("jj")
+	else:
+		pass
 
 func get_direction() -> Vector2:
 	return Vector2(
