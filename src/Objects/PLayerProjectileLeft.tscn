@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 12 )
 
-[node name="PlayerProjectile" type="KinematicBody2D"]
-collision_layer = 0
-collision_mask = 0
+[node name="PlayerProjectile" type="KinematicBody2D" groups=["player_projectile"]]
+collision_layer = 128
+collision_mask = 136
 script = ExtResource( 2 )
 
 [node name="SprProjectile" type="Sprite" parent="."]
