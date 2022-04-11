@@ -90,7 +90,6 @@ position = Vector2( -1, -25.5 )
 scale = Vector2( 1.75, 1.51282 )
 texture = ExtResource( 1 )
 hframes = 16
-frame = 4
 
 [node name="player_collision" type="CollisionShape2D" parent="."]
 position = Vector2( -1, -26.75 )
@@ -133,6 +132,10 @@ parameters/movement/blend_position = Vector2( 0.246608, 0.268041 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -1, -23 )
+
+[node name="BoostedTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

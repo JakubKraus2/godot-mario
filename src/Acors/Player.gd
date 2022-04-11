@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		$AnimationTree.set("parameters/movement/blend_position", _velocity)
 
 
-	if boosted == true && Input.is_action_just_pressed("left_button"):
+	if boosted == true && Input.is_action_just_pressed("left_button") && $BoostedTimer.time_left > 0.0:
 		if projectile_direction <= 0.0:
 			var Player_projectile_instance = Player_projectile.instance()
 			owner.add_child(Player_projectile_instance)
@@ -45,6 +45,12 @@ func _physics_process(delta: float) -> void:
 			Player_projectileLeft_instance.transform = $Position2D.global_transform
 	else:
 		pass
+		
+	if $BoostedTimer.time_left <= 0.0:
+			self.scale = Vector2(1, 1)
+
+func start_boosted_timer():
+	$BoostedTimer.start()
 
 func get_direction() -> Vector2:
 	return Vector2(
