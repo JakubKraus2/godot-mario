@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/background_blacksmith.png" type="Texture" id=1]
+[ext_resource path="res://assets/damage_upgrade.png" type="Texture" id=2]
+[ext_resource path="res://assets/armor_upgrade.png" type="Texture" id=3]
+[ext_resource path="res://levels/VBoxContainer2.gd" type="Script" id=4]
+[ext_resource path="res://levels/VBoxContainer.gd" type="Script" id=5]
+[ext_resource path="res://assets/health_upgrade.png" type="Texture" id=6]
+
+[node name="blacksmith" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 621.0
+margin_right = 1016.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 600.0
+script = ExtResource( 5 )
+
+[node name="damageButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_right = 108.0
+margin_bottom = 102.0
+icon = ExtResource( 2 )
+flat = true
+
+[node name="armorButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 108.0
+margin_bottom = 208.0
+icon = ExtResource( 3 )
+flat = true
+
+[node name="healthButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 212.0
+margin_right = 108.0
+margin_bottom = 314.0
+icon = ExtResource( 6 )
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 112.0
+margin_right = 112.0
+margin_bottom = 600.0
+script = ExtResource( 4 )
+
+[node name="damageText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_bottom = 14.0
+uppercase = true
+
+[node name="armorText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_bottom = 32.0
+uppercase = true
+
+[node name="healthText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 36.0
+margin_bottom = 50.0
+uppercase = true
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 841.0
+margin_top = 537.0
+margin_right = 1018.0
+margin_bottom = 599.0
+text = "back"
+
+[node name="Money" type="Label" parent="."]
+margin_right = 164.0
+margin_bottom = 62.0
+uppercase = true
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/damageButton" to="HBoxContainer/VBoxContainer" method="_on_damageButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/armorButton" to="HBoxContainer/VBoxContainer" method="_on_armorButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/healthButton" to="HBoxContainer/VBoxContainer" method="_on_healthButton_pressed"]
+[connection signal="pressed" from="BackButton" to="HBoxContainer/VBoxContainer" method="_on_BackButton_pressed"]
