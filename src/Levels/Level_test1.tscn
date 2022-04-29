@@ -13,14 +13,14 @@
 [ext_resource path="res://src/Objects/Mushroom.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+points = PoolVector2Array( 0, 0, 70, 0, 70, 77, 0, 77 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "TileSet.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 64, 64, 64 )
+0/region = Rect2( 3, -1, 70, 77 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -71,9 +71,6 @@ tile_data = PoolIntArray( 0, 0, 0, 46, 0, 0, 47, 0, 0, 65536, 0, 0, 65582, 0, 0,
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 228, 251 )
 speed = Vector2( 600, 1000 )
-
-[node name="player" parent="Player" index="0"]
-frame = 3
 
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 3072
