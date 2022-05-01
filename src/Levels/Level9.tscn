@@ -83,6 +83,9 @@ limit_right = 3300
 [node name="AnimationTree" parent="Player" index="5"]
 parameters/playback = SubResource( 3 )
 
+[node name="Music" parent="Player" instance=ExtResource( 9 )]
+position = Vector2( 249, -169 )
+
 [node name="boss" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1722, 586 )
 
@@ -94,8 +97,5 @@ position = Vector2( 1952, 493 )
 
 [node name="Crown" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2572, 507 )
-
-[node name="Music" parent="." instance=ExtResource( 9 )]
-position = Vector2( 684, 686 )
 
 [editable path="Player"]

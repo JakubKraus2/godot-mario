@@ -79,7 +79,7 @@ position = Vector2( 120, 544 )
 speed = Vector2( 600, 1000 )
 
 [node name="player" parent="Player" index="0"]
-frame = 1
+frame = 2
 
 [node name="Camera2D" parent="Player" index="2"]
 offset = Vector2( 0, 150 )
@@ -88,6 +88,9 @@ limit_right = 1024
 
 [node name="AnimationTree" parent="Player" index="5"]
 parameters/playback = SubResource( 3 )
+
+[node name="Music" parent="Player" instance=ExtResource( 11 )]
+position = Vector2( 261, -138 )
 
 [node name="FlameRope" parent="." instance=ExtResource( 6 )]
 position = Vector2( 510, 96 )
@@ -127,8 +130,5 @@ position = Vector2( 205, -1190 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 629, -1189 )
-
-[node name="Music" parent="." instance=ExtResource( 11 )]
-position = Vector2( 514, 151 )
 
 [editable path="Player"]

@@ -40,7 +40,7 @@ icon = ExtResource( 4 )
 flat = true
 
 [node name="Music" parent="." instance=ExtResource( 5 )]
-position = Vector2( 718, 481 )
+position = Vector2( 486, 335 )
 
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="ExitGame" to="." method="_on_ExitGame_pressed"]
