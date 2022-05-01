@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/spr_enemy3.png" type="Texture" id=1]
+[ext_resource path="res://src/Acors/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 13.1046 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "movement"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("enemy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ), Vector2( 0, -82 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("enemy_collision:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -20 ), Vector2( -8, -70 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("stompDetector:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -41 ), Vector2( 0, -91 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Area2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "movement"
+
+[sub_resource type="AnimationNodeStateMachine" id=4]
+states/movement/node = SubResource( 6 )
+states/movement/position = Vector2( 436, 89 )
+start_node = "movement"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 23, 19.75 )
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 0, -16.0408 )
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 2 )
+gravity = 100.0
+
+[node name="enemy" type="Sprite" parent="."]
+position = Vector2( 0, -32.1597 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="enemy_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -8, -20.1597 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -8.5, -20 )
+scale = Vector2( 2.25, 2 )
+process_parent = true
+physics_process_parent = true
+
+[node name="stompDetector" type="Area2D" parent="."]
+position = Vector2( 0, -41.1597 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stompDetector"]
+modulate = Color( 0.171875, 0, 1, 1 )
+position = Vector2( -8, -11.8546 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/movement = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 4 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -0.15974 )
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color( 0.533333, 0.172549, 0.172549, 1 )
+position = Vector2( -8, -19.75 )
+shape = SubResource( 7 )
+
+[connection signal="area_entered" from="stompDetector" to="." method="_on_stompDetector_area_entered"]
+[connection signal="body_entered" from="stompDetector" to="." method="_on_stompDetector_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
