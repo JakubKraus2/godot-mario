@@ -75,14 +75,15 @@ position = Vector2( 4561, 365.047 )
 position = Vector2( 189, 505 )
 speed = Vector2( 600, 1000 )
 
-[node name="player" parent="Player" index="0"]
-frame = 4
-
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 4800
 
 [node name="AnimationTree" parent="Player" index="5"]
 parameters/playback = SubResource( 3 )
+
+[node name="Music" parent="Player" instance=ExtResource( 5 )]
+position = Vector2( 205, -162.881 )
+scale = Vector2( 33.1514, 1.62147 )
 
 [node name="FlameRope" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1000, 326 )
@@ -120,9 +121,6 @@ position = Vector2( 1451, 410 )
 [node name="Enemy2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2040, 735.406 )
 scale = Vector2( 33.1514, 1.62147 )
-
-[node name="Music" parent="Enemy2" instance=ExtResource( 5 )]
-position = Vector2( 1.87021, 40.2186 )
 
 [node name="Enemy" parent="." instance=ExtResource( 11 )]
 position = Vector2( 3176, 496.625 )

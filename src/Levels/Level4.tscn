@@ -83,6 +83,10 @@ limit_right = 4800
 [node name="AnimationTree" parent="Player" index="5"]
 parameters/playback = SubResource( 3 )
 
+[node name="Music" parent="Player" instance=ExtResource( 8 )]
+position = Vector2( 182.543, -174.059 )
+scale = Vector2( 34.4581, 1.18767 )
+
 [node name="KinematicBody2D" parent="." instance=ExtResource( 13 )]
 position = Vector2( 992, 524 )
 
@@ -122,9 +126,6 @@ position = Vector2( 1382, 287 )
 [node name="Enemy4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 3116.17, 724.248 )
 scale = Vector2( 34.4581, 1.18767 )
-
-[node name="Music" parent="Enemy4" instance=ExtResource( 8 )]
-position = Vector2( 12.2317, 85.5421 )
 
 [node name="KinematicBody2D8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2462.97, 290.705 )
