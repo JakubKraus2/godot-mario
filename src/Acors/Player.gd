@@ -17,6 +17,7 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 
 func _on_EnemyDetector_body_entered(body: Node) -> void: #load game
 	Score.score = 0
+	Score.bosshp = 3
 	get_tree().reload_current_scene()
 
 

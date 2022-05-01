@@ -64,13 +64,12 @@ collision_mask = 8
 script = ExtResource( 2 )
 
 [node name="enemy" type="Sprite" parent="."]
-position = Vector2( 0, -59.6458 )
+position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 
 [node name="enemy_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -59.8059 )
+position = Vector2( -1, -32.2092 )
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
