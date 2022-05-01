@@ -95,12 +95,13 @@ script = ExtResource( 2 )
 gravity = 100.0
 
 [node name="enemy" type="Sprite" parent="."]
-position = Vector2( 0, -40.1972 )
+position = Vector2( 0, -32.1597 )
 texture = ExtResource( 1 )
 hframes = 2
+frame = 1
 
 [node name="enemy_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -8, -28.1972 )
+position = Vector2( -8, -20.1597 )
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
@@ -110,7 +111,7 @@ process_parent = true
 physics_process_parent = true
 
 [node name="stompDetector" type="Area2D" parent="."]
-position = Vector2( 0, -49.1972 )
+position = Vector2( 0, -41.1597 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stompDetector"]
@@ -128,7 +129,7 @@ active = true
 parameters/playback = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, -8.19715 )
+position = Vector2( 0, -0.15974 )
 collision_layer = 128
 collision_mask = 128
 

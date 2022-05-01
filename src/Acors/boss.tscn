@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/boss.png" type="Texture" id=1]
+[ext_resource path="res://src/Acors/boss.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 44, 61.75 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "movement"
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("enemy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 0, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ), Vector2( 0, -150 ), Vector2( 0, -32 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("enemy_collision:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, -32.2092 ), Vector2( -1, -150 ), Vector2( -1, -32.2092 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "movement"
+
+[sub_resource type="AnimationNodeStateMachine" id=4]
+states/movement/node = SubResource( 6 )
+states/movement/position = Vector2( 436, 89 )
+start_node = "movement"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
+
+[node name="boss" type="KinematicBody2D"]
+position = Vector2( 0, -16.0408 )
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="enemy" type="Sprite" parent="."]
+position = Vector2( 0, -59.6458 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="enemy_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -1, -59.8059 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 4.00003, -40.9592 )
+scale = Vector2( 19.4, 18.2 )
+process_parent = true
+physics_process_parent = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/movement = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 4 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 5 )
