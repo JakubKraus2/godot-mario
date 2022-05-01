@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/title.png" type="Texture" id=1]
 [ext_resource path="res://assets/newGame.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://assets/quitGame.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Music.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/menuBackground.png" type="Texture" id=6]
 
 [node name="MainMenu" type="Node2D"]
@@ -37,6 +38,9 @@ margin_right = 508.0
 margin_bottom = 470.0
 icon = ExtResource( 4 )
 flat = true
+
+[node name="Music" parent="." instance=ExtResource( 5 )]
+position = Vector2( 718, 481 )
 
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="ExitGame" to="." method="_on_ExitGame_pressed"]
